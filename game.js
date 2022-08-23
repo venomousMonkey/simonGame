@@ -7,11 +7,11 @@ let sound5 = new Audio("sounds/wrong.mp3");
 
 // listening to key press and checking if sequence has started
 
-$(document).keydown(function () {
-  if (started === false) {
-    nextSequence();
-    started = true;
-  }
+$(document).keydown(() => {
+  if (started) return
+
+  nextSequence();
+  started = true;
 });
 
 // catching click and pushing to user pattern array
