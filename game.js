@@ -31,26 +31,9 @@ $(".btn").click(function () {
 
 // playing sound on user click
 
-function playSound(name) {
-  switch (name) {
-    case "blue":
-      let sound1 = new Audio("sounds/blue.mp3");
-      sound1.play();
-      break;
-
-    case "green":
-      let sound2 = new Audio("sounds/green.mp3");
-      sound2.play();
-      break;
-
-    case "red":
-      let sound3 = new Audio("sounds/red.mp3");
-      sound3.play();
-
-    case "yellow":
-      let sound4 = new Audio("sounds/yellow.mp3");
-      sound4.play();
-  }
+const playSound = (name) => {
+  const sound = new Audio(`sounds/${name}.mp3`)
+  sound.play()
 }
 
 // animating button on click
