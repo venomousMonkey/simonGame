@@ -8,7 +8,7 @@ let sound5 = new Audio("sounds/wrong.mp3");
 // listening to key press and checking if sequence has started
 
 $(document).keydown(() => {
-  if (started) return
+  if (started) return;
 
   nextSequence();
   started = true;
@@ -16,7 +16,7 @@ $(document).keydown(() => {
 
 // catching click and pushing to user pattern array
 
-$(".btn").click(function () {
+$(".btn").click(() => {
   let userChosenColor = this.id;
   userClickedPattern.push(userChosenColor);
 
@@ -32,9 +32,9 @@ $(".btn").click(function () {
 // playing sound on user click
 
 const playSound = (name) => {
-  const sound = new Audio(`sounds/${name}.mp3`)
-  sound.play()
-}
+  const sound = new Audio(`sounds/${name}.mp3`);
+  sound.play();
+};
 
 // animating button on click
 
@@ -44,7 +44,7 @@ function animatePress(currentColor) {
 
   //adding timeout to remove class after 100ms
 
-  setTimeout(function () {
+  setTimeout(() => {
     $(animButton).removeClass("pressed");
   }, 100);
 }
@@ -52,7 +52,7 @@ function animatePress(currentColor) {
 function gameOverBlink() {
   $("body").addClass("game-over");
 
-  setTimeout(function () {
+  setTimeout(() => {
     $("body").removeClass("game-over");
   }, 200);
 }
@@ -87,7 +87,7 @@ function checkAnswer(currentLevel) {
     if (userClickedPattern.length === gamePattern.length) {
       userClickedPattern = [];
       // setting delay and running next function
-      setTimeout(function () {
+      setTimeout(() => {
         nextSequence();
       }, 1000);
     }
@@ -98,7 +98,7 @@ function checkAnswer(currentLevel) {
 
     //cleaning stage
 
-    setTimeout(function () {
+    setTimeout(() => {
       userClickedPattern = [];
       gamePattern = [];
       level = 0;
